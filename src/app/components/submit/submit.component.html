@@ -1,0 +1,18 @@
+
+<div class="grid p-fluid">
+
+    <form [formGroup]="submitForm" (ngSubmit)="submitCode()">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" pInputText> 
+        <br>
+        <label for="code">Code</label>
+        <textarea id="code" formControlName="code" rows="5" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
+        <br>
+        <label for="name">Language</label>
+        <p-dropdown [options]="languages" formControlName="language" placeholder="Select a language" optionLabel="name"
+            [showClear]="true"></p-dropdown>
+        <br>
+        <button pButton>Submit</button>
+    </form>
+
+</div>
