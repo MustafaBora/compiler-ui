@@ -5,7 +5,7 @@ import { SubmitComponent } from './components/submit/submit.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: 'top3', pathMatch: 'full'},
   {path: 'submit', component: SubmitComponent},
   {path: 'top3', component: Top3Component},
   {path: '**', redirectTo: 'top3'}
