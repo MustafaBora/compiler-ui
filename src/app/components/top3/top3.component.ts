@@ -10,7 +10,7 @@ export class Top3Component implements OnInit {
 
   top3 = Array<Object>();
 
-  constructor( private readonly submissionService: SubmissionsService) {
+  constructor(private readonly submissionService: SubmissionsService) {
   }
 
   ngOnInit(): void {
@@ -19,9 +19,7 @@ export class Top3Component implements OnInit {
 
   getTop3Rows() {
     this.submissionService.getTop3Rows().subscribe((val) => {
-      console.log(val);
-      this.top3.push(val);
-      console.log("degerini datatablea yazmak!");
+      this.top3 = this.top3.concat(val);
     });
   }
 
