@@ -2,23 +2,26 @@
 <div class="grid p-fluid" style="padding:20px">
 
     <form [formGroup]="submitForm" (ngSubmit)="submitCode()">
-        <label for="name">Name</label>
-        <input id="name" type="text" formControlName="name" pInputText> 
-        <br>
-        <label for="tasks">Task</label>
-        <p-dropdown id="tasks" [options]="tasks" formControlName="task" placeholder="Select a task" optionLabel="name"
-            [showClear]="true" (onChange)="onTaskChange($event)" ></p-dropdown>
-        <br>
-        <label for="code">Description</label>
-        <textarea id="description" formControlName="description" rows="2" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
-        <br>
-        <label for="code">Solution Code</label>
-        <textarea id="code" formControlName="script" rows="5" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
-        <br>
-        <label for="languages">Language</label>
-        <p-dropdown id="languages" [options]="languages" formControlName="language"
-            optionLabel="name" [showClear]="true"></p-dropdown>
-        <br>
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" pInputText> 
+            <br>
+            <label for="tasks">Task</label>
+            <p-dropdown id="tasks" [options]="tasks" formControlName="task" placeholder="Select a task" optionLabel="name"
+                [showClear]="true" (onChange)="onTaskChange($event)" ></p-dropdown>
+            <br>
+            <label for="code">Description</label>
+            <textarea id="description" formControlName="description" rows="2" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
+            <br>
+            <label for="code">Solution Code</label>
+            <textarea id="code" formControlName="script" rows="5" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
+            <br>
+            <label for="languages">Language</label>
+            <p-dropdown id="languages" [options]="languages" formControlName="language"
+                optionLabel="name" [showClear]="true"></p-dropdown>
+            <br>
+            <p-toast position="top-left"></p-toast>
+        </div>
         <button pButton>Submit</button>
     </form>
 
