@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SubmitService } from 'src/app/services/submit.service';
+import { Code } from 'src/app/models/code';
+import { SubmissionsService } from 'src/app/services/submit.service';
 
 interface Language {
   name: string,
@@ -22,7 +23,7 @@ export class SubmitComponent implements OnInit {
   languages: Language[];
   tasks: Task[];
 
-  constructor(private readonly fb: FormBuilder, private readonly service: SubmitService) {
+  constructor(private readonly fb: FormBuilder, private readonly service: SubmissionsService) {
     this.languages = [
       {name: 'Java', code: 'java'},
       {name: 'C#', code: 'csharp'},
@@ -51,8 +52,17 @@ export class SubmitComponent implements OnInit {
   });
 
   submitCode() {
+    this.submitForm.value['language'] = {code:'java' , name:'Java'};
     console.log(this.submitForm.value);
-    this.service.submitCode(this.submitForm.value).subscribe((val) => {
+    const code:Code = <Code>{};
+    code.language = 'java';   // other languages are in premium
+    code.name = this.submitForm.value['name'];
+    code.script = this.submitForm.value['script'];
+    code.task = this.submitForm.value['task'].name;
+    code.stdin = '';
+    code.versionIndex = '0';
+    this.service.submitCode(code).subscribe((val) => {
+      debugger;
       console.log(val);
     });
   }

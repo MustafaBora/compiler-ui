@@ -5,8 +5,8 @@
         <label for="name">Name</label>
         <input id="name" type="text" formControlName="name" pInputText> 
         <br>
-        <label for="name">Task</label>
-        <p-dropdown [options]="tasks" formControlName="task" placeholder="Select a task" optionLabel="name"
+        <label for="tasks">Task</label>
+        <p-dropdown id="tasks" [options]="tasks" formControlName="task" placeholder="Select a task" optionLabel="name"
             [showClear]="true" (onChange)="onTaskChange($event)" ></p-dropdown>
         <br>
         <label for="code">Description</label>
@@ -15,8 +15,8 @@
         <label for="code">Solution Code</label>
         <textarea id="code" formControlName="script" rows="5" cols="60" pInputTextarea [autoResize]="autoResize"></textarea>
         <br>
-        <label for="name">Language</label>
-        <p-dropdown [options]="languages" formControlName="language"
+        <label for="languages">Language</label>
+        <p-dropdown id="languages" [options]="languages" formControlName="language"
             optionLabel="name" [showClear]="true"></p-dropdown>
         <br>
         <button pButton>Submit</button>

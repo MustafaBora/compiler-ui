@@ -1,2 +1,22 @@
-
-<p>top 3</p>
+<p-table [value]="top3" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        Top 3 Most Successful
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Success Solutions</th>
+            <th>Tasks</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-place>
+        <tr>
+            <td>{{place.name}}</td>
+            <td>{{place.successSolution}}</td>
+            <td>{{place.task}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        Footer
+    </ng-template>
+</p-table>
